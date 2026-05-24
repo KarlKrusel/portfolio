@@ -9,6 +9,7 @@ import { Skills } from "@/components/portfolio/Skills";
 import { CareerDirection } from "@/components/portfolio/CareerDirection";
 import { Contact } from "@/components/portfolio/Contact";
 import { Footer } from "@/components/portfolio/Footer";
+import { ChatWidget } from "@/components/portfolio/ChatWidget";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -45,6 +46,7 @@ function Index() {
         <Contact />
       </main>
       <Footer />
+      <ChatWidget />
       <Toaster richColors theme="light" position="bottom-right" />
     </div>
   );
