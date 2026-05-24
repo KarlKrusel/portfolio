@@ -58,11 +58,12 @@ export function ProjectCard({ project, onOpen, index }: Props) {
         className="relative aspect-[4/5] w-full overflow-hidden bg-surface-muted text-left"
         aria-label={`Open ${project.title}`}
       >
-        {project.image ? (
+        {(project.image ?? project.images?.[0]) ? (
           <img
-            src={project.image}
+            src={`${import.meta.env.BASE_URL}${project.image ?? project.images![0]}`}
             alt={project.title}
-            className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+            className="h-full w-full object-contain transition-transform duration-700 group-hover:scale-[1.03]"
+            style={{ backgroundColor: project.brand?.bg ? `#${project.brand.bg}` : undefined }}
           />
         ) : (
           <BrandTile project={project} />
