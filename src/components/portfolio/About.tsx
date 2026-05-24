@@ -30,7 +30,7 @@ export function About() {
             <div className="relative">
               <div
                 className="overflow-hidden transition-all duration-500 ease-in-out"
-                style={{ maxHeight: expanded ? "800px" : "4.5rem" }}
+                style={{ maxHeight: expanded ? "2000px" : "4.5rem" }}
               >
                 <div className="space-y-6">
                   <p className="text-muted-foreground">
