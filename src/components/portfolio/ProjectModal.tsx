@@ -1,4 +1,4 @@
-import { Github, ExternalLink, ArrowUpRight } from "lucide-react";
+import { Github, ExternalLink, ArrowUpRight, Download } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -102,6 +102,16 @@ export function ProjectModal({ project, open, onOpenChange }: Props) {
                 >
                   <Github className="h-3.5 w-3.5" />
                   Source on GitHub
+                </a>
+              )}
+              {project.downloadUrl && (
+                <a
+                  href={`${import.meta.env.BASE_URL}${project.downloadUrl}`}
+                  download
+                  className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground hover:text-ink"
+                >
+                  <Download className="h-3.5 w-3.5" />
+                  Download Report
                 </a>
               )}
             </div>

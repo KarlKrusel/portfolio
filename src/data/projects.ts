@@ -32,6 +32,7 @@ export interface Project {
   brand?: ProjectBrand;
   githubUrl?: string;
   liveUrl?: string;
+  downloadUrl?: string;
   problem?: string;
   whatIBuilt?: string;
   whatILearned?: string;
@@ -127,6 +128,7 @@ export const projects: Project[] = [
       "Given a Ubuntu 20.04 VM set up to replicate a system that had never had security work done on it. Started with nmap to enumerate open ports and version numbers, then ran a Lynis audit for system-level issues. Found four documented vulnerabilities: UFW was completely off leaving every service exposed, a plain HTTP file server on port 9090 was serving employee password hashes and 47 customer records (SSNs, card numbers, full PII) with zero authentication, the XVWA web app had unsanitized user input going directly into SQL queries, and the FTP server was running ProFTPD 1.3.0a — a version from 2007 with a CVSS 10.0 stack buffer overflow already packaged in Metasploit. Remediated the firewall with UFW deny-by-default rules and moved the credential files off the public server. The missing firewall was the biggest issue: with it off, every other vulnerability was directly reachable from the network with nothing in between.",
     techStack: ["nmap", "Lynis", "Ubuntu", "UFW", "SQL Injection", "ProFTPD", "CVE Research", "OWASP"],
     brand: { wordmark: "CIS", bg: "0d1117", fg: "f0f6fc" },
+    downloadUrl: "CIS458-Vulnerability-Assessment-Karl-Krusel.docx",
     problem:
       "A VM running several services had never had any security hardening applied. The goal was to find the vulnerabilities, document them with proper classification, and fix at least two.",
     whatIBuilt:
