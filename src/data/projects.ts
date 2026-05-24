@@ -60,22 +60,23 @@ export const projects: Project[] = [
   },
   {
     id: "mixmate",
-    title: "MixMate — DJ Track Analyzer",
+    title: "MixMate V2 — DJ Track Analyzer",
     category: "Cloud",
-    status: "In Progress",
+    status: "Deployed",
     featured: true,
     shortDescription:
-      "Cloud service that ingests DJ tracks and returns basic analysis — built on Google Cloud Run, Storage, and Firestore.",
+      "Flask web app on Google Cloud Run. Upload an MP3 or WAV, get back BPM, musical key, and genre. Four GCP services wired together in a single request.",
     longDescription:
-      "MixMate combines music, data, and cloud. Users upload tracks, a Flask service on Cloud Run queues analysis with Pub/Sub, results land in Firestore, and audio files live in Cloud Storage.",
-    techStack: ["Python", "Flask", "Google Cloud Run", "Cloud Storage", "Firestore", "Pub/Sub"],
+      "MixMate V2 is a Flask web app running on Google Cloud Run. You upload a track in the browser and it returns BPM, musical key, and a genre label. I skipped librosa and wrote the audio math myself: BPM estimation uses autocorrelation via FFT on a downsampled amplitude envelope, key detection uses pitch class energy from a windowed FFT across the frequency range, and genre is determined by BPM rules. After analysis, the file goes to Cloud Storage, results get written to Firestore, and a Pub/Sub message fires as an event log for each track. The whole thing runs in a Docker container deployed on Cloud Run with 2GB memory.",
+    techStack: ["Python", "Flask", "NumPy", "SoundFile", "Cloud Run", "Cloud Storage", "Firestore", "Pub/Sub", "Docker"],
     brand: { iconSlug: "googlecloud", bg: "0f1d3a", fg: "ffffff" },
+    githubUrl: "https://github.com/KarlKrusel/mixmate",
     problem:
-      "DJs need a quick way to see basic info about their tracks without using heavy desktop software.",
+      "DJs need a fast way to check BPM and key without loading tracks into Rekordbox or a DAW.",
     whatIBuilt:
-      "A Flask app deployed on Cloud Run that handles uploads to Cloud Storage, queues analysis jobs with Pub/Sub, and stores track metadata in Firestore.",
+      "A Flask API containerized with Docker and deployed on Cloud Run. It runs custom BPM estimation using autocorrelation and key detection using pitch class FFT, then stores files in Cloud Storage, logs results to Firestore, and publishes a Pub/Sub event per track.",
     whatILearned:
-      "How to wire multiple Google Cloud services together, structure a small API, and think about scalable file processing.",
+      "How to write lightweight audio signal processing without heavy libraries. How to connect four Google Cloud services in a single request cycle. How to containerize a Python app and deploy it on Cloud Run.",
   },
   {
     id: "dj-visuals",
