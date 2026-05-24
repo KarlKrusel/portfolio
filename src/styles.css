@@ -1,0 +1,182 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-display: "Instrument Serif", ui-serif, Georgia, serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+  --color-ink: var(--ink);
+}
+
+:root {
+  --radius: 0.25rem;
+
+  /* Editorial paper palette — warm off-white, near-black ink */
+  --background: oklch(0.972 0.006 80);
+  --foreground: oklch(0.18 0.01 60);
+  --ink: oklch(0.14 0.01 60);
+
+  --surface: oklch(0.955 0.008 80);
+  --surface-muted: oklch(0.93 0.01 80);
+
+  --card: oklch(0.985 0.004 80);
+  --card-foreground: oklch(0.18 0.01 60);
+  --popover: oklch(0.99 0.004 80);
+  --popover-foreground: oklch(0.18 0.01 60);
+
+  /* Restrained ink-black primary; single warm accent reserved for highlights */
+  --primary: oklch(0.18 0.01 60);
+  --primary-foreground: oklch(0.985 0.004 80);
+
+  --secondary: oklch(0.93 0.008 80);
+  --secondary-foreground: oklch(0.2 0.01 60);
+
+  --muted: oklch(0.93 0.008 80);
+  --muted-foreground: oklch(0.48 0.01 60);
+
+  /* Accent — warm orange/clay, used sparingly */
+  --accent: oklch(0.7 0.16 50);
+  --accent-foreground: oklch(0.99 0.004 80);
+
+  --destructive: oklch(0.6 0.22 25);
+  --destructive-foreground: oklch(0.99 0.004 80);
+
+  --border: oklch(0.88 0.008 80);
+  --input: oklch(0.9 0.008 80);
+  --ring: oklch(0.18 0.01 60);
+
+  --shadow-soft: 0 1px 2px oklch(0 0 0 / 0.04), 0 8px 24px -12px oklch(0 0 0 / 0.08);
+  --shadow-lift: 0 2px 4px oklch(0 0 0 / 0.04), 0 24px 48px -20px oklch(0 0 0 / 0.14);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "ss01", "cv11";
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+    font-weight: 400;
+    color: var(--ink);
+  }
+  ::selection {
+    background: var(--ink);
+    color: var(--background);
+  }
+  section {
+    scroll-margin-top: 5rem;
+  }
+}
+
+@layer utilities {
+  /* Frosted glass — Apple/Off-White inspired */
+  .glass {
+    background: color-mix(in oklab, var(--background) 62%, transparent);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border: 1px solid color-mix(in oklab, var(--ink) 8%, transparent);
+  }
+  .glass-strong {
+    background: color-mix(in oklab, var(--background) 78%, transparent);
+    backdrop-filter: saturate(180%) blur(28px);
+    -webkit-backdrop-filter: saturate(180%) blur(28px);
+    border-bottom: 1px solid color-mix(in oklab, var(--ink) 8%, transparent);
+  }
+  .glass-card {
+    background: color-mix(in oklab, var(--card) 70%, transparent);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid color-mix(in oklab, var(--ink) 8%, transparent);
+  }
+
+  .shadow-soft { box-shadow: var(--shadow-soft); }
+  .shadow-lift { box-shadow: var(--shadow-lift); }
+
+  .text-ink { color: var(--ink); }
+  .bg-ink { background-color: var(--ink); }
+
+  .display {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: -0.035em;
+    line-height: 0.92;
+  }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted-foreground);
+  }
+
+  .hairline { background-color: color-mix(in oklab, var(--ink) 12%, transparent); }
+
+  .fade-in-up { animation: fadeInUp 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(14px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .marquee-track {
+    animation: marquee 40s linear infinite;
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* Subtle paper grain */
+  .grain::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.35;
+    mix-blend-mode: multiply;
+    background-image: radial-gradient(oklch(0 0 0 / 0.05) 1px, transparent 1px);
+    background-size: 3px 3px;
+  }
+}
