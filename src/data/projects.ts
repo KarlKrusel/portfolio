@@ -91,6 +91,7 @@ export const projects: Project[] = [
     longDescription:
       "Code-driven workflow for creating seamless looping visuals tuned to a venue, theme, or set. The goal is to keep the room alive without anyone running visuals manually. This project remains private — it's part of the KRL brand and kept off public repos intentionally.",
     techStack: ["Python", "After Effects", "Rendering", "Motion design"],
+    images: ["dj-visual-icon.png"],
     brand: { iconSlug: "adobeaftereffects", bg: "1a0033", fg: "d8a8ff" },
     problem:
       "Most venues do not have someone running visuals during a DJ set, so screens end up empty or repetitive.",
