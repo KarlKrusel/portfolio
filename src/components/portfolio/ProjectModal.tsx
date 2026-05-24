@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Github, ExternalLink, ArrowUpRight, Download } from "lucide-react";
 import {
   Dialog,
@@ -15,34 +16,71 @@ interface Props {
 }
 
 export function ProjectModal({ project, open, onOpenChange }: Props) {
+  const [activeImg, setActiveImg] = useState(0);
+
   if (!project) return null;
+
+  const images = project.images ?? [];
+  const hasImages = images.length > 0;
+
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-h-[92vh] max-w-3xl overflow-y-auto border-border bg-background p-0">
-        {/* Brand header */}
-        <div
-          className="relative grid h-36 shrink-0 place-items-center overflow-hidden md:h-44"
-          style={{ backgroundColor: project.brand ? `#${project.brand.bg}` : undefined }}
-        >
-          {project.brand?.wordmark ? (
-            <span
-              className="display text-8xl md:text-9xl"
-              style={{ color: `#${project.brand.fg}` }}
-            >
-              {project.brand.wordmark}
-            </span>
-          ) : project.brand?.iconSlug ? (
+        {/* Header — image if available, otherwise brand tile */}
+        {hasImages ? (
+          <div className="relative shrink-0 overflow-hidden bg-black">
             <img
-              src={`https://cdn.simpleicons.org/${project.brand.iconSlug}/${project.brand.fg}`}
+              src={`${import.meta.env.BASE_URL}${images[activeImg]}`}
               alt=""
-              className="h-24 w-24 md:h-32 md:w-32"
+              className="w-full object-contain max-h-72"
             />
-          ) : (
-            <span className="font-display text-7xl text-ink/20">
-              {project.title.split(" ").map((w) => w[0]).join("").slice(0, 2)}
-            </span>
-          )}
-        </div>
+          </div>
+        ) : (
+          <div
+            className="relative grid h-36 shrink-0 place-items-center overflow-hidden md:h-44"
+            style={{ backgroundColor: project.brand ? `#${project.brand.bg}` : undefined }}
+          >
+            {project.brand?.wordmark ? (
+              <span
+                className="display text-8xl md:text-9xl"
+                style={{ color: `#${project.brand.fg}` }}
+              >
+                {project.brand.wordmark}
+              </span>
+            ) : project.brand?.iconSlug ? (
+              <img
+                src={`https://cdn.simpleicons.org/${project.brand.iconSlug}/${project.brand.fg}`}
+                alt=""
+                className="h-24 w-24 md:h-32 md:w-32"
+              />
+            ) : (
+              <span className="font-display text-7xl text-ink/20">
+                {project.title.split(" ").map((w) => w[0]).join("").slice(0, 2)}
+              </span>
+            )}
+          </div>
+        )}
+
+        {/* Thumbnail strip */}
+        {images.length > 1 && (
+          <div className="flex gap-2 overflow-x-auto border-b border-border px-4 py-2">
+            {images.map((src, i) => (
+              <button
+                key={src}
+                onClick={() => setActiveImg(i)}
+                className={`shrink-0 h-14 w-20 overflow-hidden border transition-colors ${
+                  activeImg === i ? "border-ink" : "border-border opacity-50 hover:opacity-100"
+                }`}
+              >
+                <img
+                  src={`${import.meta.env.BASE_URL}${src}`}
+                  alt=""
+                  className="h-full w-full object-cover"
+                />
+              </button>
+            ))}
+          </div>
+        )}
 
         <div className="p-8 md:p-10">
           <DialogHeader className="text-left">

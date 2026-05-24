@@ -33,6 +33,7 @@ export interface Project {
   githubUrl?: string;
   liveUrl?: string;
   downloadUrl?: string;
+  images?: string[];
   problem?: string;
   whatIBuilt?: string;
   whatILearned?: string;
@@ -147,6 +148,8 @@ export const projects: Project[] = [
     longDescription:
       "Built for CIS 373. A GSR sensor wired to an Adafruit Circuit Playground Bluefruit reads skin conductance from finger electrodes 10 times a second. CircuitPython firmware on the board applies a 30-sample rolling average to cut noise, then streams structured data over USB serial as GSR:{value},T:{time}. A Chrome page connects directly to the serial port using the Web Serial API — no libraries, plain JavaScript — and renders a live graph with a 15-second baseline benchmark and a noise floor band. To get a real, controlled stress response, I embedded the classic Scary Maze Game into the interface. When the jumpscare fires, it drops a marker on the graph at that exact moment. The spike lands well outside the noise band. It is the same basic principle a polygraph uses.",
     techStack: ["CircuitPython", "Web Serial API", "JavaScript", "Adafruit Circuit Playground", "GSR Sensor"],
+    image: "gsr/ui.png",
+    images: ["gsr/ui.png", "gsr/results.png", "gsr/maze.png", "gsr/sensor.jpg"],
     brand: { wordmark: "GSR", bg: "0a1628", fg: "4fc3f7" },
     problem:
       "Needed a controlled way to produce and measure a real physiological stress response — not simulated data.",
