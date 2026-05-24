@@ -116,16 +116,23 @@ export const projects: Project[] = [
       "How small process changes inside Office tools can save real hours every week for a small business.",
   },
   {
-    id: "traffic-crash",
-    title: "Traffic Crash Data Analysis",
-    category: "Data Analysis",
+    id: "vuln-assessment",
+    title: "CIS 458 Vulnerability Assessment",
+    category: "IT",
     status: "Class Project",
+    date: "April 2026",
     shortDescription:
-      "Python analysis of traffic crash data — cleaning, charting, and pattern exploration across time and cause.",
+      "Assessed an intentionally misconfigured Ubuntu VM. Found four vulnerabilities: open firewall, exposed credential files with no auth, SQL injection, and a CVSS 10.0 FTP exploit already in Metasploit.",
     longDescription:
-      "Cleaned and explored crash data with Pandas and Matplotlib to surface patterns in timing, location, injury severity, and cause.",
-    techStack: ["Python", "Pandas", "Matplotlib", "Excel"],
-    brand: { iconSlug: "pandas", bg: "150458", fg: "ffffff" },
+      "Given a Ubuntu 20.04 VM set up to replicate a system that had never had security work done on it. Started with nmap to enumerate open ports and version numbers, then ran a Lynis audit for system-level issues. Found four documented vulnerabilities: UFW was completely off leaving every service exposed, a plain HTTP file server on port 9090 was serving employee password hashes and 47 customer records (SSNs, card numbers, full PII) with zero authentication, the XVWA web app had unsanitized user input going directly into SQL queries, and the FTP server was running ProFTPD 1.3.0a — a version from 2007 with a CVSS 10.0 stack buffer overflow already packaged in Metasploit. Remediated the firewall with UFW deny-by-default rules and moved the credential files off the public server. The missing firewall was the biggest issue: with it off, every other vulnerability was directly reachable from the network with nothing in between.",
+    techStack: ["nmap", "Lynis", "Ubuntu", "UFW", "SQL Injection", "ProFTPD", "CVE Research", "OWASP"],
+    brand: { wordmark: "CIS", bg: "0d1117", fg: "f0f6fc" },
+    problem:
+      "A VM running several services had never had any security hardening applied. The goal was to find the vulnerabilities, document them with proper classification, and fix at least two.",
+    whatIBuilt:
+      "A full vulnerability assessment covering four findings: no firewall (CWE-1008), exposed credentials and PII on an unauthenticated file server (CWE-200), SQL injection in a web app (CWE-89, OWASP A1:2017), and an outdated FTP server with a public CVSS 10.0 exploit (CVE-2010-4221). Included remediation steps and verified each fix worked.",
+    whatILearned:
+      "How much a missing firewall compounds every other vulnerability. With UFW off, all services were directly reachable with nothing between an attacker and the data. Most of the fixes were simple — one command for the firewall, a file move for the exposed records. The harder part is knowing where to look and how to document findings clearly enough that someone else can act on them.",
   },
   {
     id: "database-design",
