@@ -4,23 +4,26 @@ export function About() {
   return (
     <section id="about" className="py-24 md:py-32">
       <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-        <SectionHeader eyebrow="01 — About" index="Profile" title="IT student with real-world experience." />
+        <SectionHeader eyebrow="01 — About" index="Profile" title="Technology applied to real business problems." />
 
         <div className="grid gap-12 md:grid-cols-12">
           <div className="space-y-6 text-base leading-relaxed text-ink md:col-span-7 md:text-lg">
             <p className="font-display text-2xl italic leading-snug text-ink md:text-3xl">
-              IT student at GVSU with a background in automation, AI tools, cloud services, and
-              business technology.
+              IT student at GVSU who applies technology inside real businesses, not just builds
+              class projects.
             </p>
             <p className="text-muted-foreground">
-              My experience includes IT support, Office automation, cloud infrastructure, data
-              analysis, and client-facing work in real business environments. I focus on building
-              systems that reduce friction and help organizations run more efficiently.
+              Most of my experience came from walking into actual business environments, finding
+              where manual work was slowing things down, and fixing it. That covers IT support,
+              Office automation, cloud infrastructure, data work, and client-facing systems.
+              The skill isn't any one tool — it's identifying the problem and knowing how to
+              close it with what's available.
             </p>
             <p className="text-muted-foreground">
-              Outside of school, I perform as <span className="text-ink">DJ KRL</span> in Grand
-              Rapids. That work built skills in communication, marketing, live troubleshooting,
-              and managing the technical side of events.
+              Running a freelance business as <span className="text-ink">DJ KRL</span> in Grand
+              Rapids taught me things school doesn't: client management, real accountability,
+              marketing, and operating under your own name. Every technical project I've built
+              came from an actual problem I needed to solve.
             </p>
           </div>
 
@@ -31,7 +34,7 @@ export function About() {
                 { k: "Based", v: "Michigan, USA" },
                 { k: "Studying", v: "B.S. Information Technology" },
                 { k: "Graduating", v: "April 2027" },
-                { k: "Focus", v: "Automation · AI · Cloud · Data" },
+                { k: "Focus", v: "Business Automation · Cloud · Data" },
                 { k: "Also", v: "DJ KRL — Grand Rapids" },
               ].map((row) => (
                 <div key={row.k} className="flex items-baseline justify-between py-3">

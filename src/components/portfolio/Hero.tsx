@@ -47,15 +47,15 @@ export function Hero() {
           <div className="md:col-span-3">
             <p className="eyebrow mb-3">Currently</p>
             <p className="text-sm leading-relaxed text-ink">
-              4th-year IT student at Grand Valley State University. Hands-on experience in
-              automation, cloud, data, and business technology.
+              4th-year IT student at Grand Valley State University. Applied technology inside
+              real businesses, not just coursework.
             </p>
           </div>
 
           <div className="md:col-span-6 md:col-start-5">
             <p className="eyebrow mb-3">Focus</p>
             <p className="font-display text-3xl italic leading-tight text-ink md:text-4xl">
-              Automation, AI tools, cloud systems, and projects that solve real problems.
+              Finding the process that shouldn't still be manual. Building systems that reduce friction and help businesses operate better.
             </p>
           </div>
 

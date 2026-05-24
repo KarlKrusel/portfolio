@@ -65,7 +65,7 @@ export const projects: Project[] = [
     status: "Deployed",
     featured: true,
     shortDescription:
-      "Flask web app on Google Cloud Run. Upload an MP3 or WAV, get back BPM, musical key, and genre. Four GCP services wired together in a single request.",
+      "Audio analysis tool built on Google Cloud Run. The same architecture pattern running behind every modern SaaS backend: upload triggers processing, results land in a database, an event fires downstream.",
     longDescription:
       "MixMate V2 is a Flask web app running on Google Cloud Run. You upload a track in the browser and it returns BPM, musical key, and a genre label. I skipped librosa and wrote the audio math myself: BPM estimation uses autocorrelation via FFT on a downsampled amplitude envelope, key detection uses pitch class energy from a windowed FFT across the frequency range, and genre is determined by BPM rules. After analysis, the file goes to Cloud Storage, results get written to Firestore, and a Pub/Sub message fires as an event log for each track. The whole thing runs in a Docker container deployed on Cloud Run with 2GB memory.",
     techStack: ["Python", "Flask", "NumPy", "SoundFile", "Cloud Run", "Cloud Storage", "Firestore", "Pub/Sub", "Docker"],
@@ -103,9 +103,9 @@ export const projects: Project[] = [
     category: "Business Technology",
     status: "Completed",
     shortDescription:
-      "Bulk client letter system using Excel + Word Mail Merge that replaced hand-typed mailings.",
+      "Walked into a small insurance firm, identified a process that was still being done by hand, and automated it. Saved real staff hours every week.",
     longDescription:
-      "Excel and Word Mail Merge based system for personalized client letters — reduced manual typing, improved formatting, and produced print-ready letters aligned to windowed envelopes.",
+      "Client letters at Brown Insurance were being typed and formatted individually by hand. I built a structured Excel data source paired with Word Mail Merge templates that produce print-ready letters aligned to windowed envelopes. The same skill that IT consultants charge $150/hr to apply — find the manual process that shouldn't be manual, and fix it with tools already in the building.",
     techStack: ["Excel", "Word", "Mail Merge", "Microsoft 365"],
     brand: { iconSlug: "microsoftexcel", bg: "0f5132", fg: "ffffff" },
     problem:
