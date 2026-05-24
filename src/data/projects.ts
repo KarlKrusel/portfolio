@@ -137,16 +137,23 @@ export const projects: Project[] = [
       "How much a missing firewall compounds every other vulnerability. With UFW off, all services were directly reachable with nothing between an attacker and the data. Most of the fixes were simple — one command for the firewall, a file move for the exposed records. The harder part is knowing where to look and how to document findings clearly enough that someone else can act on them.",
   },
   {
-    id: "database-design",
-    title: "Database Design Projects",
-    category: "IT",
-    status: "Class Projects",
+    id: "gsr-monitor",
+    title: "GSR Stress Monitor",
+    category: "Creative Tech",
+    status: "Class Project",
+    date: "April 2026",
     shortDescription:
-      "ER diagrams, keys, relationships, normalization, and SQL queries across coursework.",
+      "Browser-based stress monitor using a GSR sensor and an Adafruit Circuit Playground. Real hardware, real data — proved a measurable stress spike at the exact moment a jumpscare fired.",
     longDescription:
-      "Hands-on database design work covering primary and foreign keys, one-to-many and many-to-many relationships, normalization, and query writing.",
-    techStack: ["SQL", "MySQL", "ER diagrams", "Normalization"],
-    brand: { iconSlug: "mysql", bg: "00546b", fg: "ffffff" },
+      "Built for CIS 373. A GSR sensor wired to an Adafruit Circuit Playground Bluefruit reads skin conductance from finger electrodes 10 times a second. CircuitPython firmware on the board applies a 30-sample rolling average to cut noise, then streams structured data over USB serial as GSR:{value},T:{time}. A Chrome page connects directly to the serial port using the Web Serial API — no libraries, plain JavaScript — and renders a live graph with a 15-second baseline benchmark and a noise floor band. To get a real, controlled stress response, I embedded the classic Scary Maze Game into the interface. When the jumpscare fires, it drops a marker on the graph at that exact moment. The spike lands well outside the noise band. It is the same basic principle a polygraph uses.",
+    techStack: ["CircuitPython", "Web Serial API", "JavaScript", "Adafruit Circuit Playground", "GSR Sensor"],
+    brand: { wordmark: "GSR", bg: "0a1628", fg: "4fc3f7" },
+    problem:
+      "Needed a controlled way to produce and measure a real physiological stress response — not simulated data.",
+    whatIBuilt:
+      "A two-part system: CircuitPython firmware that reads the GSR sensor, smooths the signal with a rolling average, and streams data over USB serial — paired with a plain JavaScript Chrome interface using the Web Serial API that graphs the live signal, sets a baseline, and marks exactly when the jumpscare triggers.",
+    whatILearned:
+      "How to get hardware and a browser talking directly with no middleware. The Web Serial API is more capable than most people realize. Rolling averages are essential for noisy analog sensor data — raw readings are unusable without smoothing.",
   },
   {
     id: "pc-building",
