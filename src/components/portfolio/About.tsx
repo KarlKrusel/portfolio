@@ -9,36 +9,43 @@ export function About() {
         <div className="grid gap-12 md:grid-cols-12">
           <div className="space-y-6 text-base leading-relaxed text-ink md:col-span-7 md:text-lg">
             <p className="font-display text-2xl italic leading-snug text-ink md:text-3xl">
-              Most of my real experience came from walking into business environments, seeing
-              where things were slow or messy, and fixing them with the tools already there.
+              Most of my experience has come from walking into real business environments, seeing
+              where things are slow or messy, and figuring out how to fix them with the tools
+              that are already there.
             </p>
             <p className="text-muted-foreground">
-              A lot of businesses don't need a big expensive solution first. They need someone who
-              can look at the problem clearly, understand what's slowing people down, and build
-              something practical. At Brown Insurance I found client letters being formatted by hand
-              and built an Excel and Word Mail Merge system that turned client data into
-              print-ready letters. Simple on the surface, but it cut repeated work, reduced
-              mistakes, and made the process consistent. That's the kind of IT that actually helps
-              a business.
+              A lot of businesses do not always need some huge expensive solution first. Sometimes
+              they need someone who can look at the problem clearly, understand what is slowing
+              people down, and build something practical that makes the job easier. A good example
+              of this was my work with Brown Insurance in Traverse City. I used Excel and Word Mail
+              Merge to create a system that could take client data and turn it into personalized,
+              print-ready letters. It was not just about making a document look nice. It was about
+              reducing repeated work, cutting down mistakes, making the process more consistent,
+              and helping the business communicate with clients in a more organized way.
             </p>
             <p className="text-muted-foreground">
-              At GVSU I've worked across databases, networking, cybersecurity, cloud systems,
-              programming, and data analysis. The part that matters to me is how all of it connects
-              to real problems. A database is how a business organizes information so it can use it.
-              A network is what keeps people connected. Cybersecurity is about protecting people,
-              money, and trust. My strongest skill isn't any one tool — it's walking into a problem
-              and figuring out what needs to happen next. Sometimes that's Excel. Sometimes it's
-              Python. The tool changes; the mindset doesn't.
+              That project taught me that IT is not just about knowing the most advanced tool or
+              using the newest software. A lot of IT is about understanding people, understanding
+              how they work, and then building a better process around that. I have learned that my
+              strongest skill is not just one specific tool. It is being able to walk into a problem
+              and figure out what needs to happen next. Sometimes that means using Excel because it
+              is the fastest and most realistic tool for the business. Sometimes it means writing
+              Python because the task needs automation. Sometimes it means building a website.
+              The tool changes depending on the problem, but the mindset stays the same.
             </p>
             <p className="text-muted-foreground">
-              Running <span className="text-ink">DJ KRL</span> in Grand Rapids taught me things
-              school doesn't. Client management, pitching yourself without sounding unsure,
-              showing up prepared, reading a room, and making sure people remember you. There's no
-              grade — the crowd reacts in real time and the manager either books you again or
-              doesn't. That kind of accountability sharpens how you work fast. Going to Bonn
-              International School in Germany also changed how I see things. It put me in a
-              completely different environment, forced me to adapt quickly, and made me comfortable
-              stepping into unfamiliar situations. That's something I carry into every project.
+              Running my freelance business as <span className="text-ink">DJ KRL</span> in Grand
+              Rapids has taught me just as much as school in some ways. When you operate under
+              your own name, everything is on you. There is no professor giving you a grade at the
+              end. The crowd reacts in real time. The manager either wants to book you again or
+              they do not. That kind of accountability teaches you fast. Going to Bonn
+              International School in Germany also changed the way I see the world. It put me in a
+              completely different environment and forced me to grow up in ways I probably would
+              not have if I stayed in one place my whole life. Being around students from different
+              countries made me more open-minded and better at working with different types of
+              people. After Germany, I finished my senior year at Leland Public School in Northern
+              Michigan. Bonn taught me about the world and independence. Leland brought me back to
+              a smaller community and reminded me how important local connections are.
             </p>
           </div>
 

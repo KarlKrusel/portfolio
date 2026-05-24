@@ -12,6 +12,7 @@ const SCRAMBLE_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789·°—/\\";
 
 function TickerBar() {
   const [display, setDisplay] = useState(TICKER_MESSAGES[0]);
+  const [phase, setPhase] = useState<"idle" | "out" | "in">("idle");
   const rafRef = useRef<number>(0);
   const indexRef = useRef(0);
 
@@ -37,6 +38,7 @@ function TickerBar() {
         rafRef.current = requestAnimationFrame(tick);
       } else {
         setDisplay(target);
+        setPhase("idle");
       }
     };
 
@@ -45,8 +47,12 @@ function TickerBar() {
 
   useEffect(() => {
     const id = setInterval(() => {
-      indexRef.current = (indexRef.current + 1) % TICKER_MESSAGES.length;
-      scrambleTo(TICKER_MESSAGES[indexRef.current]);
+      setPhase("out");
+      setTimeout(() => {
+        indexRef.current = (indexRef.current + 1) % TICKER_MESSAGES.length;
+        setPhase("in");
+        scrambleTo(TICKER_MESSAGES[indexRef.current]);
+      }, 240);
     }, 5000);
     return () => {
       clearInterval(id);
@@ -54,7 +60,15 @@ function TickerBar() {
     };
   }, []);
 
-  return <span className="inline-block whitespace-nowrap">{display}</span>;
+  return (
+    <span
+      className={`inline-block whitespace-nowrap ${
+        phase === "out" ? "flip-out" : phase === "in" ? "flip-in" : ""
+      }`}
+    >
+      {display}
+    </span>
+  );
 }
 
 export function Hero() {
