@@ -50,10 +50,16 @@ export function Navbar() {
         </div>
 
         <div className="flex items-center gap-4">
+          <button
+            onClick={() => window.dispatchEvent(new CustomEvent("open-chat"))}
+            className="hidden font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground hover:text-accent transition-colors md:inline"
+          >
+            AI Webpage Assistant
+          </button>
           <a
             href="/resume.pdf"
             download
-            className="hidden font-mono text-[11px] uppercase tracking-[0.2em] text-ink hover:text-accent sm:inline"
+            className="hidden font-mono text-[11px] uppercase tracking-[0.2em] text-accent hover:opacity-80 transition-opacity sm:inline"
           >
             Resume ↓
           </a>
@@ -83,10 +89,16 @@ export function Navbar() {
             <a
               href="/resume.pdf"
               download
-              className="py-3 font-mono text-xs uppercase tracking-[0.2em] text-accent"
+              className="border-b border-border/60 py-3 font-mono text-xs uppercase tracking-[0.2em] text-accent"
             >
               Resume ↓
             </a>
+            <button
+              onClick={() => { setOpen(false); window.dispatchEvent(new CustomEvent("open-chat")); }}
+              className="py-3 text-left font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground"
+            >
+              AI Webpage Assistant
+            </button>
           </div>
         </div>
       )}

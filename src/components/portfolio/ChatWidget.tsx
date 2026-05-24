@@ -46,6 +46,12 @@ export function ChatWidget() {
   }, []);
 
   useEffect(() => {
+    const handler = () => setOpen(true);
+    window.addEventListener("open-chat", handler);
+    return () => window.removeEventListener("open-chat", handler);
+  }, []);
+
+  useEffect(() => {
     if (open) {
       setShowBadge(false);
       bottomRef.current?.scrollIntoView({ behavior: "smooth" });

@@ -43,7 +43,16 @@ Education:
 
 Languages: English (fluent), German (basic)
 
-Long-term goal: Build AI systems and automation tools that help organizations operate more efficiently.`;
+Long-term goal: Build AI systems and automation tools that help organizations operate more efficiently.
+
+Background and personal context:
+Karl grew up on the east side of Michigan but spent most weekends in Omena, so Northern Michigan has always felt like a second home. That mix shaped a lot of who he is — east side Michigan during the week, then up north on weekends around the water, small towns, and the slower Northern Michigan lifestyle.
+
+For high school, he had a unique experience — he went to Bonn International School in Germany, which taught him a lot about independence, different cultures, and seeing the world from a different perspective. Living in Germany had a big impact on him. It helped him grow up, meet people from all over, and shaped his love for music, especially techno and drum and bass.
+
+For his senior year he came back to Michigan and went to Leland Public School in Leelanau County — a completely different environment from an international school in Germany, but it helped reconnect him with his Northern Michigan roots. Going between those two worlds gave him a perspective most people don't have.
+
+Today he lives in Grand Rapids and DJs under the name KRL, creating custom visuals for events alongside the music. A lot of his interests come from the different places he grew up, the people he met, and the experiences he had between Michigan and Germany.`;
 
 interface Env {
   GROQ_API_KEY: string;
