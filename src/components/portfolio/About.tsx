@@ -9,21 +9,36 @@ export function About() {
         <div className="grid gap-12 md:grid-cols-12">
           <div className="space-y-6 text-base leading-relaxed text-ink md:col-span-7 md:text-lg">
             <p className="font-display text-2xl italic leading-snug text-ink md:text-3xl">
-              IT student at GVSU who applies technology inside real businesses, not just builds
-              class projects.
+              Most of my real experience came from walking into business environments, seeing
+              where things were slow or messy, and fixing them with the tools already there.
             </p>
             <p className="text-muted-foreground">
-              Most of my experience came from walking into actual business environments, finding
-              where manual work was slowing things down, and fixing it. That covers IT support,
-              Office automation, cloud infrastructure, data work, and client-facing systems.
-              The skill isn't any one tool — it's identifying the problem and knowing how to
-              close it with what's available.
+              A lot of businesses don't need a big expensive solution first. They need someone who
+              can look at the problem clearly, understand what's slowing people down, and build
+              something practical. At Brown Insurance I found client letters being formatted by hand
+              and built an Excel and Word Mail Merge system that turned client data into
+              print-ready letters. Simple on the surface, but it cut repeated work, reduced
+              mistakes, and made the process consistent. That's the kind of IT that actually helps
+              a business.
             </p>
             <p className="text-muted-foreground">
-              Running a freelance business as <span className="text-ink">DJ KRL</span> in Grand
-              Rapids taught me things school doesn't: client management, real accountability,
-              marketing, and operating under your own name. Every technical project I've built
-              came from an actual problem I needed to solve.
+              At GVSU I've worked across databases, networking, cybersecurity, cloud systems,
+              programming, and data analysis. The part that matters to me is how all of it connects
+              to real problems. A database is how a business organizes information so it can use it.
+              A network is what keeps people connected. Cybersecurity is about protecting people,
+              money, and trust. My strongest skill isn't any one tool — it's walking into a problem
+              and figuring out what needs to happen next. Sometimes that's Excel. Sometimes it's
+              Python. The tool changes; the mindset doesn't.
+            </p>
+            <p className="text-muted-foreground">
+              Running <span className="text-ink">DJ KRL</span> in Grand Rapids taught me things
+              school doesn't. Client management, pitching yourself without sounding unsure,
+              showing up prepared, reading a room, and making sure people remember you. There's no
+              grade — the crowd reacts in real time and the manager either books you again or
+              doesn't. That kind of accountability sharpens how you work fast. Going to Bonn
+              International School in Germany also changed how I see things. It put me in a
+              completely different environment, forced me to adapt quickly, and made me comfortable
+              stepping into unfamiliar situations. That's something I carry into every project.
             </p>
           </div>
 
