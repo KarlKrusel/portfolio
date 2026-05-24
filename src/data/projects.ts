@@ -155,13 +155,15 @@ export const projects: Project[] = [
     id: "portfolio-site",
     title: "This Portfolio",
     category: "Web Development",
-    status: "In Progress",
+    status: "Live",
     shortDescription:
-      "The site you are reading — built to feel like a designed object, not a template.",
+      "Personal portfolio site built with React, TypeScript, and Tailwind. Deployed on GitHub Pages via GitHub Actions.",
     longDescription:
-      "Custom-built portfolio focused on editorial typography, calm motion, and a clean read for recruiters and hiring managers.",
-    techStack: ["React", "TypeScript", "Tailwind", "TanStack Start"],
+      "Built from a TanStack Start SSR template and converted to a static SPA for GitHub Pages hosting. Covers projects, experience, skills, and a contact form. Deployed automatically on every push to main via a GitHub Actions workflow.",
+    techStack: ["React", "TypeScript", "Tailwind CSS", "TanStack Router", "Vite", "GitHub Actions"],
     brand: { iconSlug: "react", bg: "0a0a0a", fg: "61dafb" },
+    githubUrl: "https://github.com/KarlKrusel/portfolio",
+    liveUrl: "https://karlkrusel.github.io/portfolio/",
   },
 ];
 
