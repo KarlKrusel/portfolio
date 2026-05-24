@@ -7,7 +7,7 @@ export function Hero() {
         {/* Top meta row */}
         <div className="mb-16 flex items-center justify-between border-b border-border pb-4 font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
           <span>Grand Rapids, MI · 42.96°N 85.67°W</span>
-          <span className="hidden sm:inline">Available — Spring &lsquo;26 internships</span>
+          <span className="hidden sm:inline">Available for Spring 2026 internships</span>
           <span className="flex items-center gap-1.5">
             <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent" />
             Online
@@ -47,16 +47,15 @@ export function Hero() {
           <div className="md:col-span-3">
             <p className="eyebrow mb-3">Currently</p>
             <p className="text-sm leading-relaxed text-ink">
-              4th-year Information Technology student at Grand Valley State University. Building
-              small, useful things across automation, cloud, data, and creative tech.
+              4th-year IT student at Grand Valley State University. Hands-on experience in
+              automation, cloud, data, and business technology.
             </p>
           </div>
 
           <div className="md:col-span-6 md:col-start-5">
             <p className="eyebrow mb-3">Focus</p>
             <p className="font-display text-3xl italic leading-tight text-ink md:text-4xl">
-              Practical software, clean systems, and the occasional 30-second visual loop for a
-              dark room at 2&nbsp;a.m.
+              Automation, AI tools, cloud systems, and projects that solve real problems.
             </p>
           </div>
 

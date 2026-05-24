@@ -18,14 +18,13 @@ export function CareerDirection() {
           <div className="md:col-span-6">
             <p className="eyebrow mb-4 border-b border-ink pb-3">— Direction</p>
             <h2 className="display text-5xl text-ink md:text-7xl">
-              Building toward <em className="font-display italic text-accent">useful</em> tech.
+              Focused on <em className="font-display italic text-accent">practical</em> tech.
             </h2>
             <div className="mt-8 space-y-5 text-muted-foreground md:text-lg">
               <p>
-                I am especially interested in automation, AI, and systems that help businesses
-                work more efficiently. The long-term goal: build technology that reduces friction
-                inside organizations, improves decisions, organizes data, and helps people
-                understand complex things faster.
+                Interested in automation and AI tools that help organizations work more
+                efficiently. Long-term goal: build AI systems that automate decision flows,
+                organize data, and improve business operations.
               </p>
               <p className="text-ink">Open to internships and entry-level roles in:</p>
             </div>

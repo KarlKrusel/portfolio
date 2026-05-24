@@ -4,24 +4,23 @@ export function About() {
   return (
     <section id="about" className="py-24 md:py-32">
       <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-        <SectionHeader eyebrow="01 — About" index="Profile" title="Quietly building useful things." />
+        <SectionHeader eyebrow="01 — About" index="Profile" title="IT student with real-world experience." />
 
         <div className="grid gap-12 md:grid-cols-12">
           <div className="space-y-6 text-base leading-relaxed text-ink md:col-span-7 md:text-lg">
             <p className="font-display text-2xl italic leading-snug text-ink md:text-3xl">
-              I am an Information Technology student at GVSU interested in automation, AI, cloud
-              tools, and the messy middle where business problems meet clean systems.
+              IT student at GVSU with a background in automation, AI tools, cloud services, and
+              business technology.
             </p>
             <p className="text-muted-foreground">
-              My experience combines technical work with real business settings — client data
-              organization, Office automation, social media strategy, IT support, PC building,
-              troubleshooting, and project-based technology solutions.
+              My experience includes IT support, Office automation, cloud infrastructure, data
+              analysis, and client-facing work in real business environments. I focus on building
+              systems that reduce friction and help organizations run more efficiently.
             </p>
             <p className="text-muted-foreground">
-              Outside of school and IT, I also perform as <span className="text-ink">DJ KRL</span>{" "}
-              in Grand Rapids. That work pushed me to get sharper at communication, marketing,
-              live problem-solving, and the creative-technical edge — building visuals, managing
-              sound, and working with venues.
+              Outside of school, I perform as <span className="text-ink">DJ KRL</span> in Grand
+              Rapids. That work built skills in communication, marketing, live troubleshooting,
+              and managing the technical side of events.
             </p>
           </div>
 

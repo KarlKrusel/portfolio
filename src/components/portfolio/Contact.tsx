@@ -45,8 +45,8 @@ export function Contact() {
         <SectionHeader
           eyebrow="05 — Contact"
           index="Say hello"
-          title="Let's make something good."
-          description="Open to internships, entry-level IT roles, project-based work, and good conversations."
+          title="Get in touch."
+          description="Open to internships, entry-level IT roles, and project-based work."
         />
 
         <div className="grid gap-12 md:grid-cols-12">
