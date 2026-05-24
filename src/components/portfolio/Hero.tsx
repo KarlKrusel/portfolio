@@ -1,4 +1,75 @@
 import { ArrowUpRight } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+
+const TICKER_MESSAGES = [
+  "Grand Rapids, MI · 42.96°N 85.67°W",
+  "Welcome to my webpage",
+  "New AI webpage assistant — available bottom right",
+  "Available for Spring 2026 internships",
+];
+
+const SCRAMBLE_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789·°—/\\";
+
+function TickerBar() {
+  const [display, setDisplay] = useState(TICKER_MESSAGES[0]);
+  const [phase, setPhase] = useState<"idle" | "out" | "in">("idle");
+  const rafRef = useRef<number>(0);
+  const indexRef = useRef(0);
+
+  const scrambleTo = (target: string) => {
+    cancelAnimationFrame(rafRef.current);
+    let frame = 0;
+    const totalFrames = Math.max(36, target.length * 1.8);
+
+    const tick = () => {
+      frame++;
+      const resolved = Math.floor((frame / totalFrames) * target.length);
+      setDisplay(
+        target
+          .split("")
+          .map((char, i) => {
+            if (char === " ") return " ";
+            if (i < resolved) return char;
+            return SCRAMBLE_CHARS[Math.floor(Math.random() * SCRAMBLE_CHARS.length)];
+          })
+          .join("")
+      );
+      if (frame < totalFrames) {
+        rafRef.current = requestAnimationFrame(tick);
+      } else {
+        setDisplay(target);
+        setPhase("idle");
+      }
+    };
+
+    rafRef.current = requestAnimationFrame(tick);
+  };
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setPhase("out");
+      setTimeout(() => {
+        indexRef.current = (indexRef.current + 1) % TICKER_MESSAGES.length;
+        setPhase("in");
+        scrambleTo(TICKER_MESSAGES[indexRef.current]);
+      }, 240);
+    }, 5000);
+    return () => {
+      clearInterval(id);
+      cancelAnimationFrame(rafRef.current);
+    };
+  }, []);
+
+  return (
+    <span
+      className={`inline-block whitespace-nowrap ${
+        phase === "out" ? "flip-out" : phase === "in" ? "flip-in" : ""
+      }`}
+    >
+      {display}
+    </span>
+  );
+}
 
 export function Hero() {
   return (
@@ -6,8 +77,7 @@ export function Hero() {
       <div className="mx-auto max-w-[1400px] px-6 md:px-10">
         {/* Top meta row */}
         <div className="mb-16 flex items-center justify-between border-b border-border pb-4 font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
-          <span>Grand Rapids, MI · 42.96°N 85.67°W</span>
-          <span className="hidden sm:inline">Available for Spring 2026 internships</span>
+          <TickerBar />
           <span className="flex items-center gap-1.5">
             <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent" />
             Online
