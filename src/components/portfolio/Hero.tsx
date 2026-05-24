@@ -76,9 +76,11 @@ export function Hero() {
     <section id="home" className="relative overflow-hidden pt-32 pb-16 md:pt-40 md:pb-24">
       <div className="mx-auto max-w-[1400px] px-6 md:px-10">
         {/* Top meta row */}
-        <div className="mb-16 flex items-center justify-between border-b border-border pb-4 font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
-          <TickerBar />
-          <span className="flex items-center gap-1.5">
+        <div className="mb-16 flex items-center gap-4 border-b border-border pb-4 font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
+          <div className="min-w-0 flex-1 overflow-hidden">
+            <TickerBar />
+          </div>
+          <span className="flex shrink-0 items-center gap-1.5">
             <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent" />
             Online
           </span>
