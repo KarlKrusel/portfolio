@@ -87,7 +87,7 @@ export const projects: Project[] = [
     shortDescription:
       "Seamless 30-second visual loops for live DJ sets and venue screens — scripted in Python, finished in After Effects.",
     longDescription:
-      "Code-driven workflow for creating seamless looping visuals tuned to a venue, theme, or set. The goal is to keep the room alive without anyone running visuals manually.",
+      "Code-driven workflow for creating seamless looping visuals tuned to a venue, theme, or set. The goal is to keep the room alive without anyone running visuals manually. This project remains private — it's part of the KRL brand and kept off public repos intentionally.",
     techStack: ["Python", "After Effects", "Rendering", "Motion design"],
     brand: { iconSlug: "adobeaftereffects", bg: "1a0033", fg: "d8a8ff" },
     problem:
