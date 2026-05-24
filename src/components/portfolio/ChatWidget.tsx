@@ -26,16 +26,28 @@ interface Message {
   content: string;
 }
 
+const WELCOME: Message = {
+  role: "assistant",
+  content: "Hey, I'm Karl's portfolio assistant. Ask me anything about his projects, experience, or skills — or let me know if you're looking for something specific. What can I help you with?",
+};
+
 export function ChatWidget() {
   const [open, setOpen] = useState(false);
-  const [messages, setMessages] = useState<Message[]>([]);
+  const [showBadge, setShowBadge] = useState(false);
+  const [messages, setMessages] = useState<Message[]>([WELCOME]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
+    const t = setTimeout(() => setShowBadge(true), 10000);
+    return () => clearTimeout(t);
+  }, []);
+
+  useEffect(() => {
     if (open) {
+      setShowBadge(false);
       bottomRef.current?.scrollIntoView({ behavior: "smooth" });
       inputRef.current?.focus();
     }
@@ -101,12 +113,21 @@ export function ChatWidget() {
 
           {/* Messages */}
           <div className="flex-1 overflow-y-auto px-4 py-4 space-y-4">
-            {messages.length === 0 && (
-              <div className="space-y-2">
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  Ask me about Karl's experience, projects, skills, or availability.
-                </p>
-                <div className="space-y-1.5 pt-1">
+            {messages.map((m, i) => (
+              <div key={i}>
+              <div className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}>
+                <div
+                  className={`max-w-[85%] px-3 py-2 text-sm leading-relaxed ${
+                    m.role === "user"
+                      ? "bg-ink text-background"
+                      : "border border-border text-ink"
+                  }`}
+                >
+                  {m.role === "assistant" ? renderMessage(m.content) : m.content}
+                </div>
+              </div>
+              {i === 0 && messages.length === 1 && (
+                <div className="mt-2 space-y-1.5">
                   {[
                     "What projects has Karl built?",
                     "Is Karl available for internships?",
@@ -121,20 +142,7 @@ export function ChatWidget() {
                     </button>
                   ))}
                 </div>
-              </div>
-            )}
-
-            {messages.map((m, i) => (
-              <div key={i} className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}>
-                <div
-                  className={`max-w-[85%] px-3 py-2 text-sm leading-relaxed ${
-                    m.role === "user"
-                      ? "bg-ink text-background"
-                      : "border border-border text-ink"
-                  }`}
-                >
-                  {m.role === "assistant" ? renderMessage(m.content) : m.content}
-                </div>
+              )}
               </div>
             ))}
 
@@ -175,10 +183,15 @@ export function ChatWidget() {
       {/* Toggle button */}
       <button
         onClick={() => setOpen((v) => !v)}
-        className="flex h-12 w-12 items-center justify-center bg-ink text-background shadow-lg hover:opacity-90 transition-opacity"
+        className="relative flex h-12 w-12 items-center justify-center bg-ink text-background shadow-lg hover:opacity-90 transition-opacity"
         aria-label="Open chat"
       >
         {open ? <X className="h-5 w-5" /> : <MessageCircle className="h-5 w-5" />}
+        {!open && showBadge && (
+          <span className="absolute -left-1 -top-1 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 font-mono text-[10px] text-white">
+            1
+          </span>
+        )}
       </button>
     </div>
   );
