@@ -3,6 +3,24 @@ import { MessageCircle, X, Send, Loader2 } from "lucide-react";
 
 const WORKER_URL = import.meta.env.VITE_CHAT_WORKER_URL ?? "";
 
+function renderMessage(text: string) {
+  const clean = text
+    .replace(/\*\*(.*?)\*\*/g, "$1")
+    .replace(/\*(.*?)\*/g, "$1")
+    .replace(/`([^`]+)`/g, "$1")
+    .replace(/^#+\s*/gm, "");
+
+  return clean
+    .split("\n")
+    .map((l) => l.trim())
+    .filter(Boolean)
+    .map((line, i) => (
+      <p key={i} className={i > 0 ? "mt-1.5" : ""}>
+        {line}
+      </p>
+    ));
+}
+
 interface Message {
   role: "user" | "assistant";
   content: string;
@@ -115,7 +133,7 @@ export function ChatWidget() {
                       : "border border-border text-ink"
                   }`}
                 >
-                  {m.content}
+                  {m.role === "assistant" ? renderMessage(m.content) : m.content}
                 </div>
               </div>
             ))}
