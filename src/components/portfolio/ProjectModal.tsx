@@ -21,7 +21,7 @@ export function ProjectModal({ project, open, onOpenChange }: Props) {
       <DialogContent className="max-h-[92vh] max-w-3xl overflow-y-auto border-border bg-background p-0">
         {/* Brand header */}
         <div
-          className="relative grid aspect-[16/8] place-items-center overflow-hidden"
+          className="relative grid h-36 shrink-0 place-items-center overflow-hidden md:h-44"
           style={{ backgroundColor: project.brand ? `#${project.brand.bg}` : undefined }}
         >
           {project.brand?.wordmark ? (
