@@ -57,7 +57,7 @@ export function Navbar() {
             AI Webpage Assistant
           </button>
           <a
-            href="/resume.pdf"
+            href={`${import.meta.env.BASE_URL}Karl-Krusel-Resume.pdf`}
             download
             className="hidden font-mono text-[11px] uppercase tracking-[0.2em] text-accent hover:opacity-80 transition-opacity sm:inline"
           >
@@ -87,7 +87,7 @@ export function Navbar() {
               </a>
             ))}
             <a
-              href="/resume.pdf"
+              href={`${import.meta.env.BASE_URL}Karl-Krusel-Resume.pdf`}
               download
               className="border-b border-border/60 py-3 font-mono text-xs uppercase tracking-[0.2em] text-accent"
             >
