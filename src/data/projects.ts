@@ -173,6 +173,24 @@ export const projects: Project[] = [
     brand: { wordmark: "PC", bg: "1a1a1a", fg: "f5f3ee" },
   },
   {
+    id: "hypeddit-downloader",
+    title: "HypedditDownloader v3",
+    category: "Automation",
+    status: "Shipped",
+    shortDescription:
+      "Standalone Windows app that downloads and converts Hypeddit tracks. Single .exe — no install, no Node required. Go GUI shell wraps a bundled Node.js engine via caxa.",
+    longDescription:
+      "A single .exe for downloading and converting audio from Hypeddit — the music distribution platform used by labels, producers, and promoters. The architecture is two-layer: a native Windows GUI written in Go using the walk framework handles buttons, dialogs, and status feedback. When the user triggers a download, Go spawns an embedded Node.js process that hits the Hypeddit API, resolves audio URLs, and writes files to disk. caxa bundles the entire Node.js runtime and npm dependency tree directly into the binary — zero installation on the target machine. ffmpeg handles MP3/MP4 conversion. Version 3 reflects iterative improvement over multiple shipped releases.",
+    techStack: ["Go", "Node.js", "JavaScript", "caxa", "ffmpeg", "walk", "Windows GUI"],
+    brand: { wordmark: "v3", bg: "1a0a2e", fg: "b47fff" },
+    problem:
+      "Hypeddit offers no bulk download option through its web interface. Music fans, producers, and DJs needed a way to pull tracks locally — with format conversion — without touching a terminal or installing anything.",
+    whatIBuilt:
+      "A standalone Windows executable combining a Go GUI shell (walk framework) with a caxa-bundled Node.js downloader. The GUI handles user input, file dialogs, and progress feedback. Go spawns the Node.js engine which hits the Hypeddit API, resolves audio URLs, and writes to disk. ffmpeg converts output to MP3 or MP4. Supports single tracks, playlists, and batch downloads.",
+    whatILearned:
+      "How to architect polyglot applications — combining Go and Node.js inside a single deployable binary. How caxa solves the Node.js distribution problem cleanly. That a native Windows GUI via walk gives a lighter, faster feel than Electron for a utility app, even when the bundled runtime is large.",
+  },
+  {
     id: "portfolio-site",
     title: "This Portfolio",
     category: "Web Development",
