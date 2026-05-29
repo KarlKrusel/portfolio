@@ -111,6 +111,7 @@ export const projects: Project[] = [
       "Client letters at Brown Insurance were being typed and formatted individually by hand. I built a structured Excel data source paired with Word Mail Merge templates that produce print-ready letters aligned to windowed envelopes. The same skill that IT consultants charge $150/hr to apply — find the manual process that shouldn't be manual, and fix it with tools already in the building.",
     techStack: ["Excel", "Word", "Mail Merge", "Microsoft 365"],
     brand: { iconSlug: "microsoftexcel", bg: "0f5132", fg: "ffffff" },
+    images: ["mail-merge-icon.png"],
     problem:
       "Client letters were being typed and formatted by hand, which was slow and easy to mess up.",
     whatIBuilt:
