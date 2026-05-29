@@ -91,7 +91,7 @@ export function Contact() {
               <p className="eyebrow mb-4 border-b border-border pb-3">— Elsewhere</p>
               <ul className="space-y-1">
                 {[
-                  { icon: Download, label: "Resume.pdf", href: "/resume.pdf", download: true },
+                  { icon: Download, label: "Resume.pdf", href: `${import.meta.env.BASE_URL}Karl-Krusel-Resume.pdf`, download: true },
                   { icon: Github, label: "GitHub", href: "https://github.com/karlkrusel" },
                   { icon: Linkedin, label: "LinkedIn", href: "#" },
                   {

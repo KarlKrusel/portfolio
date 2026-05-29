@@ -25,7 +25,7 @@ export function Resume() {
             title="Education & experience."
           />
           <a
-            href="/resume.pdf"
+            href={`${import.meta.env.BASE_URL}Karl-Krusel-Resume.pdf`}
             download
             className="group mb-14 inline-flex items-center gap-2 border-b border-ink pb-1 font-mono text-[11px] uppercase tracking-[0.2em] text-ink"
           >
