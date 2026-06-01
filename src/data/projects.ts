@@ -174,6 +174,44 @@ export const projects: Project[] = [
     brand: { wordmark: "PC", bg: "1a1a1a", fg: "f5f3ee" },
   },
   {
+    id: "wordle-solver",
+    title: "Wordle Solver",
+    category: "Automation",
+    status: "Shipped",
+    shortDescription:
+      "Automated Wordle bot that plays back-to-back games without human input. Uses an information-theory entropy algorithm to pick optimal guesses, reads tile feedback via Selenium, and ships as a standalone .exe.",
+    longDescription:
+      "Fully automated Wordle player built in Python with Selenium. Opens wordleunlimited.org in Chrome, guesses words using an entropy-based algorithm that maximizes information gain on each guess, reads the green/yellow/gray tile results, filters the word list, and loops back through Play Again without any human input. The word list is pulled directly from the site via a fetch script. PyInstaller bundles everything into a single .exe — no Python install required. Each run produces a timestamped log file with every guess, tile read, and filter step.",
+    techStack: ["Python", "Selenium", "PyInstaller", "webdriver-manager", "Entropy algorithm"],
+    brand: { wordmark: "WS", bg: "121212", fg: "6aaa64" },
+    githubUrl: "https://github.com/KarlKrusel/WordleSolver",
+    problem:
+      "Wanted to see how fast an optimal algorithm could solve Wordle compared to a human — and build a bot that could run continuously without any input.",
+    whatIBuilt:
+      "A Python bot that drives Chrome via Selenium, reads tile colors from the DOM after each guess, applies entropy-based filtering to the word list, and picks the next guess automatically. Packaged into a standalone .exe with PyInstaller so anyone with Chrome can run it.",
+    whatILearned:
+      "How to apply information theory to a word game — entropy scoring selects the guess that eliminates the most possibilities on average. How to drive a real browser with Selenium and parse live DOM state reliably. How PyInstaller bundles Python apps for distribution.",
+  },
+  {
+    id: "geoduels-solver",
+    title: "GeoDuels Solver",
+    category: "Automation",
+    status: "Shipped",
+    shortDescription:
+      "Chrome extension that intercepts GeoDuels.io network requests and reveals exact GPS coordinates, country, region, and continent in a draggable overlay — before you guess.",
+    longDescription:
+      "A Manifest V3 Chrome extension for geoduels.io. The background service worker intercepts the Google Maps API call that fires at the start of each Street View round — specifically the GeoPhotoService.GetMetadata request — extracts the panorama ID, fetches the metadata directly, and parses the lat/lng and country code out of the raw response. A content script renders a draggable floating overlay on the page showing the country, ISO code, continent, region, hemisphere, and exact coordinates, with buttons to copy coords or open the location in Google Maps.",
+    techStack: ["JavaScript", "Chrome Extension", "Manifest V3", "webRequest API", "Google Maps API"],
+    brand: { wordmark: "GDS", bg: "0a1628", fg: "00e5a0" },
+    githubUrl: "https://github.com/KarlKrusel/GeoDuelsSolver",
+    problem:
+      "Wanted to understand how browser extensions intercept network requests and parse raw API responses — used a game as the testbed.",
+    whatIBuilt:
+      "A Chrome extension with a service worker that listens for the Street View metadata request, fetches and parses the response to extract GPS coordinates, and passes the result to a content script that displays a styled overlay with country info and copy/Maps buttons.",
+    whatILearned:
+      "How Chrome Manifest V3 service workers intercept network requests using the webRequest API. How to parse undocumented Google Maps API response structures. How to pass messages between background workers and content scripts.",
+  },
+  {
     id: "hypeddit-downloader",
     title: "HypedditDownloader v3",
     category: "Automation",
